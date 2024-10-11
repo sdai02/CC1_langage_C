@@ -5,8 +5,8 @@
 
 
 typedef struct id{
-    char name[100];
-    char last_name[100];
+    char * name;
+    char * last_name;
     int age;
     int birthday_day;
     int birthday_month;
@@ -16,8 +16,8 @@ typedef struct id{
 int main(void){
 
     Id customer;
-    strcpy(customer.name, "Paul");
-    strcpy(customer.last_name, "Dupont");
+    customer.name = "Paul";
+    customer.last_name = "Dupont";
     customer.age = 40;
     customer.birthday_day = 6;
     customer.birthday_month = 4;
