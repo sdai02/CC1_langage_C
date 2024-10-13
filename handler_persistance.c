@@ -4,27 +4,29 @@
 #include <string.h>
 
 
-typedef struct id{
-    char * name;
-    char * last_name;
-    int age;
-    int birthday_day;
-    int birthday_month;
-    int birthday_year;
-}Id;
+// make the makefile
 
-int main(void){
+int file (){
+    FILE * fptr;
+    fptr = fopen("Makefile","r" );
+    if (fptr == NULL){
+        printf("is empty !\n");
+        exit(0);
+    }else {
+        printf("he existe !\n");
+    }   
 
-    Id customer;
-    customer.name = "Paul";
-    customer.last_name = "Dupont";
-    customer.age = 40;
-    customer.birthday_day = 6;
-    customer.birthday_month = 4;
-    customer.birthday_year = 1984;
+ return 0;
 
-    printf("the customer name %s,last_name %s, age %d, birthday %d/%d/%d, Welcomme\n ",customer.name, customer.last_name, customer.age, customer.birthday_month, customer.birthday_day, customer.birthday_year );
-    return 0;
- 
-    
+}
+typedef struct {
+    int * data[];
+    int a;
+    int b;
+}binaryTree;
+
+
+
+void main (){
+
 }
