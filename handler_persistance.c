@@ -4,29 +4,34 @@
 #include <string.h>
 
 
-// make the makefile
+// Function main
 
-int file (){
-    FILE * fptr;
-    fptr = fopen("Makefile","r" );
+int main () {
+
+    // I'm creating a Makefile
+
+    FILE* fptr;
+    fptr = fopen("Makefile","w" );
+
+    // A condition if the Makefile is existe
+
     if (fptr == NULL){
-        printf("is empty !\n");
+        printf("not existe \n");
         exit(0);
+        
     }else {
-        printf("he existe !\n");
-    }   
+        printf("he existe\n");
 
- return 0;
+        // Same as printf, but for FILE*
+        fprintf(fptr, "I write something");
+        
+    }
 
-}
-typedef struct {
-    int * data[];
-    int a;
-    int b;
-}binaryTree;
+    // I'm clossing fptr file    
+    fclose(fptr);
+    return 0;
+ 
+
+};
 
 
-
-void main (){
-
-}
