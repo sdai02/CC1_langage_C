@@ -69,7 +69,7 @@ int main(){
     firstnode -> right = thirdnode;
     secondnode -> left = fourthnode;
 
-    fprintf(fptr"");
+    
 
     free(firstnode);
     free(secondnode);
