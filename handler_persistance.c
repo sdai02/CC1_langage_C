@@ -4,34 +4,78 @@
 #include <string.h>
 
 
-// Function main
 
-int main () {
 
-    // I'm creating a Makefile
+void handlerMakerFile () {
+
+    // Je crée une Makerfile avec la comme argumment write
 
     FILE* fptr;
-    fptr = fopen("Makefile","w" );
+    fptr = fopen("Makefile","w");
 
-    // A condition if the Makefile is existe
+    // Un condition si Makefile existe
 
     if (fptr == NULL){
         printf("not existe \n");
-        exit(0);
+        exit(1);
         
     }else {
         printf("he existe\n");
 
-        // Same as printf, but for FILE*
+        //ça écrit "I write something" dans le fichier
         fprintf(fptr, "I write something");
         
-    }
+    };
 
-    // I'm clossing fptr file    
+    // Permet de fermer le fichier et le sauvegarder
     fclose(fptr);
-    return 0;
  
 
 };
 
 
+//Je déclare la structure pour la creation des noeud
+
+typedef struct Node{
+    int root;
+    struct Node* left;
+    struct Node* right;
+}Node;
+
+//
+
+Node* handlerNewNode(int numbers){
+    Node* newNode = (Node*) malloc(sizeof(Node));
+
+    newNode -> root = numbers;
+    newNode -> left = NULL;
+    newNode -> right = NULL;
+
+    return newNode;
+};
+
+
+
+int main(){
+
+    handlerMakerFile();
+
+    Node* firstnode = handlerNewNode(2);
+    Node* secondnode = handlerNewNode(3);
+    Node* thirdnode = handlerNewNode(4);
+    Node* fourthnode = handlerNewNode(5);
+
+    firstnode -> left = secondnode;
+    firstnode -> right = thirdnode;
+    secondnode -> left = fourthnode;
+
+    fprintf(fptr"");
+
+    free(firstnode);
+    free(secondnode);
+    free(thirdnode);
+    free(fourthnode);
+
+    return 0;
+    
+};
