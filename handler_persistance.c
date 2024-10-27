@@ -13,12 +13,12 @@ typedef struct Node{
 }Node;
 
 //fonction qui crée le fichier
-
+FILE* fptr;
 void makeAFile () {
 
     // Je crée une Makerfile avec la comme argumment write
 
-    FILE* fptr;
+    
     fptr = fopen("Makefile","w");
     Node save;
     // Un condition si Makefile existe
@@ -34,33 +34,41 @@ void makeAFile () {
 
 };
 
-//permet de crée un node
-
-Node* create(int numbers){
-    Node* newNode = (Node*) malloc(sizeof(Node));
-
-    newNode -> root = numbers;
-    newNode -> left = NULL;
-    newNode -> right = NULL;
-
-    return newNode;
-};
+Node* root(int value){
+    
+    Node* newValue = (Node*) malloc(sizeof(Node));
+    newValue -> root = value;
+    newValue -> left = NULL;
+    newValue -> right = NULL;
+    return newValue;
+    
+}
 
 //fonction pour ajouter des noeud dans la structure 
-Node* insert(Node* number, int root) {
-    if(root < number -> root) {
-        number->left = insert(number->left, root)
-    } else{
-        number->right = insert(number->right, root)
+Node* insert(Node* table, int value) {
+
+    if (table == NULL){
+        return root(value);
     }
 
-    return number;
+    if(value < table -> root) {
+        table->left = insert(table->left, value);
+    } else{
+        table->right = insert(table->right, value);
+    }
+
+    return table;
 }
+
+
+
 
 int main(){
 
     makeAFile();
-
+    Node* table = root(1);
+    insert(table,5);
+    
    
 
     
