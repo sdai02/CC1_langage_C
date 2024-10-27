@@ -1,38 +1,8 @@
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-
-
-
-
-void handlerMakerFile () {
-
-    // Je crée une Makerfile avec la comme argumment write
-
-    FILE* fptr;
-    fptr = fopen("Makefile","w");
-
-    // Un condition si Makefile existe
-
-    if (fptr == NULL){
-        printf("not existe \n");
-        exit(1);
-        
-    }else {
-        printf("he existe\n");
-
-        //ça écrit "I write something" dans le fichier
-        fprintf(fptr, "I write something");
-        
-    };
-
-    // Permet de fermer le fichier et le sauvegarder
-    fclose(fptr);
- 
-
-};
-
 
 //Je déclare la structure pour la creation des noeud
 
@@ -42,9 +12,31 @@ typedef struct Node{
     struct Node* right;
 }Node;
 
-//
+//fonction qui crée le fichier
 
-Node* handlerNewNode(int numbers){
+void makeAFile () {
+
+    // Je crée une Makerfile avec la comme argumment write
+
+    FILE* fptr;
+    fptr = fopen("Makefile","w");
+    Node save;
+    // Un condition si Makefile existe
+
+    if (fptr == NULL){
+        printf("not existe \n");
+        exit(1);
+    }
+
+    // Permet de fermer le fichier et le sauvegarder
+    fclose(fptr);
+ 
+
+};
+
+//permet de crée un node
+
+Node* create(int numbers){
     Node* newNode = (Node*) malloc(sizeof(Node));
 
     newNode -> root = numbers;
@@ -54,28 +46,24 @@ Node* handlerNewNode(int numbers){
     return newNode;
 };
 
+//fonction pour ajouter des noeud dans la structure 
+Node* insert(Node* number, int root) {
+    if(root < number -> root) {
+        number->left = insert(number->left, root)
+    } else{
+        number->right = insert(number->right, root)
+    }
 
+    return number;
+}
 
 int main(){
 
-    handlerMakerFile();
+    makeAFile();
 
-    Node* firstnode = handlerNewNode(2);
-    Node* secondnode = handlerNewNode(3);
-    Node* thirdnode = handlerNewNode(4);
-    Node* fourthnode = handlerNewNode(5);
-
-    firstnode -> left = secondnode;
-    firstnode -> right = thirdnode;
-    secondnode -> left = fourthnode;
+   
 
     
-
-    free(firstnode);
-    free(secondnode);
-    free(thirdnode);
-    free(fourthnode);
-
     return 0;
     
 };
