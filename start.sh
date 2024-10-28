@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc handler_persistance.c -o handler_persistance && ./handler_persistance
+gcc main.c create.c insert.c free_table.c -o main && ./main
