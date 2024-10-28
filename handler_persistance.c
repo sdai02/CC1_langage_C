@@ -1,3 +1,5 @@
+//version unbuntu 24.04.1 LTS
+//To start : chmod +x start.sh && ./start.sh 
 
 #include <stdio.h>
 #include <stdint.h>
@@ -57,13 +59,15 @@ Node* root(int value){
 
 //fonction pour ajouter des noeud dans la structure 
 Node* insert(Node* table, int value) {
-
+    
 
     // Une conditon pour que sa affiche que une seule fois root.
 
     if (table ==  NULL){
-     
+        makeFile = fopen("Makefile","a");
         printf("root = %d\n", value);
+        fprintf(makeFile,"root = %d\n", value);
+        fclose(makeFile);
         return root(value);
     }
 
@@ -73,11 +77,26 @@ Node* insert(Node* table, int value) {
 
     if(value %2 == 0) {
         if (table -> left == NULL) {
+            
+            makeFile = fopen("Makefile","a");
+            
             printf("left = %d de root %d\n", value, table -> root);
+
+            fprintf(makeFile, "left = %d de root %d\n", value, table -> root);
+
             table -> left = root(value);
+            fclose(makeFile);
+
         } else if ( table -> right == NULL) {
+            
+            makeFile = fopen("Makefile","a");
+
             printf("right = %d de root %d\n", value, table -> root);
+
+            fprintf(makeFile,"right = %d de root %d\n", value, table -> root);
+
             table -> right = root(value);
+            fclose(makeFile);
         } 
         else {
             insert(table -> left, value); 
@@ -85,11 +104,29 @@ Node* insert(Node* table, int value) {
         
     } else{
         if (table -> right == NULL){
+
+            makeFile = fopen("Makefile","a");
+
             printf("right = %d de root %d\n", value, table -> root);
+
+            fprintf(makeFile,"right = %d de root %d\n", value, table -> root);
+
             table -> right = root(value);
+
+            fclose(makeFile);
+
         } else if ( table -> left == NULL) {
+
+            makeFile = fopen("Makefile","a");
+            
             printf("left = %d de root %d\n", value, table -> root);
+
+            fprintf(makeFile, "left = %d de root %d\n", value, table -> root);
+
             table -> left = root(value);
+
+            fclose(makeFile);
+
         } else{
             insert(table -> right, value);
         }
@@ -98,7 +135,7 @@ Node* insert(Node* table, int value) {
         
         
     }
-
+    
     return table;
 }
 
