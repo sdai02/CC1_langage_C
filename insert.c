@@ -3,6 +3,9 @@
 #include "insert.h"
 
 
+
+
+
 Node* insert(Node *table, int value) {
     FILE *makeFile;
 
@@ -13,7 +16,7 @@ Node* insert(Node *table, int value) {
         // Fonction qui crée le fichier Makerfile.
 
         makeFile = fopen("Makefile","w");
-        printf("root = %d\n", value);
+        //printf("root = %d\n", value);
         fprintf(makeFile,"root = %d\n", value);
         fclose(makeFile);
         return root(value);
@@ -23,12 +26,14 @@ Node* insert(Node *table, int value) {
     alors dans le root recoit en entrer left et right sinon sa fait 
     une interation sur la fonction insert*/ 
 
+
+
     if(value %2 == 0) {
         if (table -> left == NULL) {
             
             makeFile = fopen("Makefile","a");
             
-            printf("left = %d de root %d\n", value, table -> root);
+            //printf("left = %d de root %d\n", value, table -> root);
 
             fprintf(makeFile, "left = %d de root %d\n", value, table -> root);
 
@@ -39,7 +44,7 @@ Node* insert(Node *table, int value) {
             
             makeFile = fopen("Makefile","a");
 
-            printf("right = %d de root %d\n", value, table -> root);
+            //printf("right = %d de root %d\n", value, table -> root);
 
             fprintf(makeFile,"right = %d de root %d\n", value, table -> root);
 
@@ -51,11 +56,12 @@ Node* insert(Node *table, int value) {
         }
         
     } else{
+
         if (table -> right == NULL){
 
             makeFile = fopen("Makefile","a");
 
-            printf("right = %d de root %d\n", value, table -> root);
+            //printf("right = %d de root %d\n", value, table -> root);
 
             fprintf(makeFile,"right = %d de root %d\n", value, table -> root);
 
@@ -67,7 +73,7 @@ Node* insert(Node *table, int value) {
 
             makeFile = fopen("Makefile","a");
             
-            printf("left = %d de root %d\n", value, table -> root);
+            //printf("left = %d de root %d\n", value, table -> root);
 
             fprintf(makeFile, "left = %d de root %d\n", value, table -> root);
 
@@ -75,7 +81,8 @@ Node* insert(Node *table, int value) {
 
             fclose(makeFile);
 
-        } else{
+        } 
+         else{
             insert(table -> right, value);
         }
         

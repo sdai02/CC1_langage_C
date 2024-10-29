@@ -8,6 +8,7 @@
 #include "create.h"
 #include "insert.h"
 #include "free_table.h"
+#include "view.h"
 
 
 
@@ -25,6 +26,8 @@ int main(){
         table = insert(table, i);
     }
     
+    view();
+
     freeTable(table);
     return 0;
     

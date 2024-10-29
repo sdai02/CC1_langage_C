@@ -6,4 +6,6 @@
 
 Node* insert(Node *table, int value);
 
+void condition(Node *table, int numbers);
+
 #endif
