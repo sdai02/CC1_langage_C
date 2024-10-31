@@ -16,7 +16,7 @@ Node* insert(Node *table, int value) {
         // Fonction qui crée le fichier Makerfile.
 
         makeFile = fopen("Makefile","w");
-        //printf("root = %d\n", value);
+      
         fprintf(makeFile,"root = %d\n", value);
         fclose(makeFile);
         return root(value);

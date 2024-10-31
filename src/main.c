@@ -24,19 +24,18 @@ int main(int argc,char *argv[]){
     // Une boucle entre 0 a 7.
         
 
-        for (int i = 0; i <= 7 ; i++){
-            table = insert(table, i);
-        }
+    for (int i = 0; i <= 7 ; i++){
+        table = insert(table, i);
+    }
         
-        if(argc > 1){
-   
-            if (strcmp(argv[1], "view") == 0){
-                view();
-            }
-        
+    if(argc > 1){
+
+        if (strcmp(argv[1], "view") == 0){
+            view();
         }
     
-
+    }
+    
     freeTable(table);
     return 0;
     
