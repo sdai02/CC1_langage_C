@@ -4,7 +4,7 @@
 
 
 
-// Permet de vider la memoire dans les Node* left et Node* right. 
+// Frees memory in Node* left and Node* right.
 
 void freeTable (Node* table){
     if (table != NULL){

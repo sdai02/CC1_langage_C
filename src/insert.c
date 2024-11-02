@@ -9,11 +9,11 @@
 Node* insert(Node *table, int value) {
     FILE *makeFile;
 
-    // Une conditon pour que sa affiche que une seule fois root.
+    // A condition to display "root" only once.
 
     if (table ==  NULL){
 
-        // Fonction qui crée le fichier Makerfile.
+        // Function that creates the Makefile.
 
         makeFile = fopen("Makefile","w");
       
@@ -22,20 +22,21 @@ Node* insert(Node *table, int value) {
         return root(value);
     }
 
-    /*Une condition que si Node* left ou bien Node* right sont vide(NULL) 
-    alors dans le root recoit en entrer left et right sinon sa fait 
-    une interation sur la fonction insert*/ 
+    /* A condition that checks if either Node* left or Node* right is empty (NULL). 
+        If so, root receives left and right as input; 
+        otherwise, it performs an iteration on the insert function. */
 
 
 
-    if(value %2 == 0) {
+    
+    if(value %2 == 0 ) {
         if (table -> left == NULL) {
             
             makeFile = fopen("Makefile","a");
             
             //printf("left = %d de root %d\n", value, table -> root);
 
-            fprintf(makeFile, "left = %d de root %d\n", value, table -> root);
+            fprintf(makeFile, "left = %d on level %d\n", value, table -> root);
 
             table -> left = root(value);
             fclose(makeFile);
@@ -46,7 +47,7 @@ Node* insert(Node *table, int value) {
 
             //printf("right = %d de root %d\n", value, table -> root);
 
-            fprintf(makeFile,"right = %d de root %d\n", value, table -> root);
+            fprintf(makeFile,"right = %d on level %d\n", value, table -> root);
 
             table -> right = root(value);
             fclose(makeFile);
@@ -56,14 +57,14 @@ Node* insert(Node *table, int value) {
         }
         
     } else{
-
+        
         if (table -> right == NULL){
 
             makeFile = fopen("Makefile","a");
 
             //printf("right = %d de root %d\n", value, table -> root);
 
-            fprintf(makeFile,"right = %d de root %d\n", value, table -> root);
+            fprintf(makeFile,"right = %d on level %d\n", value, table -> root);
 
             table -> right = root(value);
 
@@ -75,21 +76,24 @@ Node* insert(Node *table, int value) {
             
             //printf("left = %d de root %d\n", value, table -> root);
 
-            fprintf(makeFile, "left = %d de root %d\n", value, table -> root);
+            fprintf(makeFile, "left = %d on level %d\n", value, table -> root);
 
             table -> left = root(value);
 
             fclose(makeFile);
 
         } 
-         else{
+        else{
             insert(table -> right, value);
         }
         
-
+        
         
         
     }
+
+
+   
     
     return table;
 }

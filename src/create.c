@@ -5,11 +5,11 @@
 
 Node* root(int value){
 
-    // Permet d'allouer de la memoire sur la table Node.
+    // Allocates memory for the Node table.
 
     Node *newValue = (Node*) malloc(sizeof(Node));
 
-    // Je deffinie les valleurs.
+    // I set the values.
 
     newValue -> root = value;
 

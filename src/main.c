@@ -1,6 +1,6 @@
-//handler_persisance.c
-//version unbuntu 24.04.1 LTS
-//To start : chmod +x start.sh && ./start.sh 
+// version unbuntu 24.04.1 LTS
+// To start : gcc main.c create.c insert.c free_table.c view.c -o main && ./main
+// To view : gcc main.c create.c insert.c free_table.c view.c -o main && ./main view
 
 #include <stdio.h>
 #include <stdint.h>
@@ -14,16 +14,17 @@
 
 
 
-// la fonction main qui va initialiser le code
+// The main function that initializes the code.
 
 int main(int argc,char *argv[]){
 
 
     Node *table = NULL;
     
-    // Une boucle entre 0 a 7.
-        
 
+   
+    // A loop from 0 to 7.
+    
     for (int i = 0; i <= 7 ; i++){
         table = insert(table, i);
     }
